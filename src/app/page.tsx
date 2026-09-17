@@ -1,6 +1,10 @@
+import { SiteHeader } from "@/components/site-header";
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-ivory text-charcoal">
+    <main id="top" className="min-h-screen bg-ivory text-charcoal">
+      <SiteHeader />
+
       <div className="mx-auto w-full max-w-7xl px-6 py-16 sm:px-8 lg:px-12">
         <section className="flex min-h-[70vh] items-center justify-center">
           <div className="text-center">
