@@ -3,9 +3,12 @@ import {
   rightNavigation,
 } from "@/config/navigation";
 
+import { MobileNavigation } from "@/components/mobile-navigation";
+
 export function SiteHeader() {
   return (
     <header className="w-full border-b border-limestone/40">
+      <MobileNavigation />
       <div className="mx-auto hidden max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-x-12 px-12 py-6 md:grid">
         <nav aria-label="Primary navigation" className="justify-self-end">
           <ul className="flex items-center gap-8">
