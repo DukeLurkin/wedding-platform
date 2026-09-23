@@ -7,7 +7,7 @@ import { MobileNavigation } from "@/components/mobile-navigation";
 
 export function SiteHeader() {
   return (
-    <header className="w-full border-b border-limestone/40">
+    <header className="relative z-20 w-full border-b border-ivory/20">
       <MobileNavigation />
       <div className="mx-auto hidden max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-x-12 px-12 py-6 md:grid">
         <nav aria-label="Primary navigation" className="justify-self-end">
@@ -16,7 +16,7 @@ export function SiteHeader() {
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="font-sans text-xs uppercase tracking-[0.2em] text-muted transition-colors hover:text-charcoal"
+                  className="font-sans text-xs uppercase tracking-[0.2em] text-ivory/80 transition-colors hover:text-ivory"
                 >
                   {item.label}
                 </a>
@@ -28,7 +28,7 @@ export function SiteHeader() {
         <a
           href="#top"
           aria-label="Kelly and Luke home"
-          className="font-display text-2xl font-medium text-charcoal"
+          className="font-display text-2xl font-medium text-ivory"
         >
           K <span className="text-champagne">|</span> L
         </a>
@@ -39,7 +39,7 @@ export function SiteHeader() {
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="font-sans text-xs uppercase tracking-[0.2em] text-muted transition-colors hover:text-charcoal"
+                  className="font-sans text-xs uppercase tracking-[0.2em] text-ivory/80 transition-colors hover:text-ivory"
                 >
                   {item.label}
                 </a>

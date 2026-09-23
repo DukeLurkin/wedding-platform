@@ -12,7 +12,7 @@ export function MobileNavigation() {
         <a
           href="#top"
           aria-label="Kelly and Luke home"
-          className="font-display text-2xl font-medium text-charcoal"
+          className="font-display text-2xl font-medium text-ivory"
         >
           K <span className="text-champagne">|</span> L
         </a>
@@ -31,12 +31,12 @@ export function MobileNavigation() {
 
           <span className="flex w-6 flex-col gap-1.5">
             <span
-              className={`h-px w-full bg-charcoal transition-transform ${
+              className={`h-px w-full bg-ivory transition-transform ${
                 isOpen ? "translate-y-[3.5px] rotate-45" : ""
               }`}
             />
             <span
-              className={`h-px w-full bg-charcoal transition-transform ${
+              className={`h-px w-full bg-ivory transition-transform ${
                 isOpen ? "-translate-y-[3.5px] -rotate-45" : ""
               }`}
             />
@@ -48,7 +48,7 @@ export function MobileNavigation() {
         <nav
           id="mobile-navigation-menu"
           aria-label="Mobile navigation"
-          className="border-t border-limestone/40 px-6 py-8"
+          className="border-t border-ivory/20 bg-charcoal/90 px-6 py-8 backdrop-blur-md"
         >
           <ul className="flex flex-col items-center gap-6">
             {mobileNavigation.map((item) => (
@@ -56,7 +56,7 @@ export function MobileNavigation() {
                 <a
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="font-sans text-sm uppercase tracking-[0.2em] text-muted transition-colors hover:text-charcoal"
+                  className="font-sans text-sm uppercase tracking-[0.2em] text-ivory/80 transition-colors hover:text-ivory"
                 >
                   {item.label}
                 </a>
