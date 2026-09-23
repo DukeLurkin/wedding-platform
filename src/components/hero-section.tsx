@@ -14,10 +14,7 @@ export function HeroSection() {
         className="object-cover object-center"
       />
 
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-charcoal/20"
-      />
+      <div aria-hidden="true" className="absolute inset-0 bg-charcoal/20" />
 
       <div
         aria-hidden="true"
@@ -41,6 +38,16 @@ export function HeroSection() {
           </p>
         </div>
       </div>
+
+      <div className="relative z-10 flex flex-col items-center pb-12 text-ivory/70">
+        <span className="font-sans text-[10px] uppercase tracking-[0.35em]">
+          Scroll
+        </span>
+        <span aria-hidden="true" className="mt-2 text-lg leading-none">
+          ↓
+        </span>
+      </div>
+
     </section>
   );
 }
