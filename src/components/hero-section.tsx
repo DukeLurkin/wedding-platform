@@ -39,14 +39,14 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="relative z-10 flex flex-col items-center pb-12 text-ivory/70">
+      <a href="#the-wedding" aria-label="Scroll to the wedding details" className="relative z-10 mx-auto flex min-h-11 flex-col items-center px-6 pb-12 text-ivory/90 transition-colors hover:text-ivory focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ivory">
         <span className="font-sans text-[10px] uppercase tracking-[0.35em]">
           Scroll
         </span>
         <span aria-hidden="true" className="mt-2 text-lg leading-none">
           ↓
         </span>
-      </div>
+      </a>
 
     </section>
   );
