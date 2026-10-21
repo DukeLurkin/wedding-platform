@@ -4,7 +4,27 @@
 
 The RSVP system should provide guests with a simple, secure way to respond to their invitation without requiring a traditional user account.
 
-The workflow should support households, individual invitees, plus-ones, meal selections, dietary restrictions, and later RSVP updates.
+The workflow should support households, individual invitees, permitted plus-ones, dietary restrictions, and later RSVP updates. Guests choose meals at the wedding rather than during the RSVP.
+
+## Current Implementation: Browser Preview
+
+The homepage RSVP section currently uses fictional sample invitations only:
+
+* `DEMO-2027` / last name `Sample`: one guest with an invited plus-one.
+* `PAIR-2027` / last name `Example`: two named guests with no plus-one.
+
+The preview supports invitation lookup, individual attendance, permitted plus-one names, dietary restrictions, review, a clearly labeled preview confirmation, and editing within the current page session. Nothing is sent or persisted; refreshing clears the draft. No real guest data or invitation credentials are included in browser code.
+
+The RSVP deadline is **February 11, 2027**, configured in `src/config/wedding.ts`. The production cutoff should be enforced by the server through the end of that day in `America/New_York`; the browser preview does not enforce a cutoff.
+
+### Needed Before Real RSVPs Open
+
+* Confirm invitation groups, plus-one permissions, and specifically invited children in the unfinished guest list. A shared family label does not necessarily mean a shared invitation.
+* Choose and connect a database and hosting environment.
+* Import guest records privately with stable identifiers so later list updates preserve responses.
+* Generate random invitation codes for printing; store hashes, validate on the server, rate-limit lookup, and establish a secure household-scoped session.
+* Implement authorized reads and writes, deadline enforcement, and persisted response updates. Never substitute the client-side sample lookup for real access control.
+* Replace preview copy and fixtures only after the real flow has been verified. Update the FAQ when real RSVPs open.
 
 ## Guest Flow
 
@@ -21,7 +41,7 @@ Possible identification methods may include:
 * Household name
 * A combination of invitation code and guest information
 
-The final identification strategy will be determined during the security and data-model design phase.
+The selected V1 method is a unique code included with each invitation, plus the last name of a named guest. The preview uses public sample codes; production credentials must be private and validated on the server.
 
 ## 2. Display Invitation Party
 
@@ -57,20 +77,9 @@ The system should distinguish between:
 
 A plus-one should not be available unless the invitation specifically permits one.
 
-## 5. Meal Selection
+## 5. Meals at the Event
 
-Each attending guest should select a meal when required.
-
-Potential meal options may include:
-
-* Beef
-* Chicken
-* Fish
-* Vegetarian
-
-Final meal options will be updated when the venue menu is confirmed.
-
-Meal selections should only appear for attending guests.
+Guests will order their meals at the event. Do not include meal-selection fields in the main wedding RSVP. Dietary restrictions and food allergies are still collected per attending guest.
 
 ## 6. Dietary Restrictions
 
@@ -100,7 +109,7 @@ The review screen should clearly display:
 * Attending guests
 * Declining guests
 * Plus-one information
-* Meal selections
+* A reminder that meals are selected at the event, if needed
 * Dietary restrictions
 * Additional responses
 
@@ -165,7 +174,7 @@ The system should validate:
 * Attendance selections
 * Plus-one eligibility
 * Plus-one names when required
-* Meal selections for attending guests
+* Dietary information associated only with attending guests
 * Required additional questions
 * RSVP deadline restrictions
 
@@ -198,7 +207,6 @@ RSVP data should support administrative reporting such as:
 * Total attending
 * Total declined
 * Total pending
-* Meal counts
 * Dietary restrictions
 * Plus-one totals
 * Household status
