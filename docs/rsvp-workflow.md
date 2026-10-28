@@ -6,7 +6,9 @@ The RSVP system should provide guests with a simple, secure way to respond to th
 
 The workflow should support households, individual invitees, permitted plus-ones, dietary restrictions, and later RSVP updates. Guests choose meals at the wedding rather than during the RSVP.
 
-## Current Implementation: Browser Preview
+## Current Implementation: Preview Modes
+
+The unset mode uses the browser preview below. This checkpoint configures the hosted site and local development for the database-backed preview, with private sample codes, server-validated invitation access, 24-hour secure sessions, durable rate limits, saved responses, editing, and commit-before-confirmation behavior. See `db/README.md` for setup, tests, deployment flags, and the remaining real-guest import work. `RSVP_MODE=database-preview` admits only test parties; `RSVP_MODE=live` admits only real parties.
 
 The homepage RSVP section currently uses fictional sample invitations only:
 
@@ -20,11 +22,10 @@ The RSVP deadline is **February 11, 2027**, configured in `src/config/wedding.ts
 ### Needed Before Real RSVPs Open
 
 * Confirm invitation groups, plus-one permissions, and specifically invited children in the unfinished guest list. A shared family label does not necessarily mean a shared invitation.
-* Choose and connect a database and hosting environment.
-* Import guest records privately with stable identifiers so later list updates preserve responses.
-* Generate random invitation codes for printing; store hashes, validate on the server, rate-limit lookup, and establish a secure household-scoped session.
-* Implement authorized reads and writes, deadline enforcement, and persisted response updates. Never substitute the client-side sample lookup for real access control.
-* Replace preview copy and fixtures only after the real flow has been verified. Update the FAQ when real RSVPs open.
+* Import confirmed guest records privately with stable identifiers so later list updates preserve responses.
+* Generate and privately distribute real invitation codes using the production hash secret. The database-backed implementation already hashes codes, validates on the server, throttles lookup, and establishes household-scoped sessions.
+* Configure the production hash secret and database mode, deploy, and verify on Vercel before opening real RSVPs. Database migrations and local tests do not enable hosted saving by themselves.
+* Keep test parties excluded from the real flow. Never substitute the client-side sample lookup for real access control. The FAQ follows the configured mode.
 
 ## Guest Flow
 

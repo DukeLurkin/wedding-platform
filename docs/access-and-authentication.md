@@ -1,5 +1,13 @@
 # Wedding Platform — Access and Authentication
 
+## V1 Implementation Update
+
+The selected V1 entry method is **invitation code plus last name**, implemented in `src/server/rsvp.ts` and exposed through authenticated Server Actions. Direct invitation links described below remain a possible later feature.
+
+Invitation codes use keyed SHA-256 hashes with a server-only `RSVP_HASH_SECRET`. Random session tokens are stored only as SHA-256 hashes, with HttpOnly, SameSite=Lax cookies that are Secure in production and expire after 24 hours. Every database read/write verifies session expiry, revocation, party membership, event access, and the selected test/live mode. Save transactions recheck the deadline, validate all guests and plus-ones, and reject stale revisions. Lookup and submission limits are persisted in Neon. See `db/README.md` for the exact modes, limits, and configuration.
+
+Only fictional, explicitly marked test parties have been seeded. Administrator access and the real guest import are not implemented yet.
+
 ## Purpose
 
 The platform requires two different access models:

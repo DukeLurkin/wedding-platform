@@ -2,17 +2,27 @@
   "name": "wedding-platform",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "db:check": "node scripts/database.mjs check",
+    "db:migrate": "node scripts/database.mjs migrate --apply",
+    "db:verify": "node scripts/database.mjs verify",
+    "rsvp:setup-preview": "node scripts/setup-rsvp-preview.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:rsvp-db": "node --conditions=react-server --import tsx --test tests/rsvp-database.integration.test.ts"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.2.0",
     "next": "16.4.3",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "server-only": "^0.0.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -22,6 +32,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.4.3",
     "tailwindcss": "^4",
+    "tsx": "^4.23.15",
     "typescript": "^5"
   }
 }

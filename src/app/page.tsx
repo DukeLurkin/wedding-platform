@@ -5,7 +5,7 @@ import { TravelSection } from "@/components/travel-section";
 import { FaqSection } from "@/components/faq-section";
 import { RegistrySection } from "@/components/registry-section";
 import { FloatingNavigation } from "@/components/floating-navigation";
-import { RsvpSection } from "@/components/rsvp-section";
+import { RsvpSection } from "@/components/rsvp-entry";
 
 export default function Home() {
   return (
