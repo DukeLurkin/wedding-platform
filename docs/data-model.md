@@ -1,5 +1,11 @@
 # Wedding Platform — Initial Data Model
 
+## Implementation Status
+
+The SQL migrations are in `db/migrations/`; see `db/README.md` for connection, migration, testing, and deployment instructions. Both migrations were applied and verified against Neon on October 28, 2026. The SQL is the concrete V1 schema; the concepts below include future possibilities.
+
+V1 stores only invitation-code hashes, uses invitation-code and last-name access, explicitly flags invited children, and omits meal selections because meals are chosen at the event. The local database preview implements secure access, persistence, editing, rate limiting, and deadline enforcement with marked sample invitations. Hosted real-guest submissions remain disabled pending the final guest list and deployment configuration.
+
 ## Purpose
 
 The data model should support the main wedding as well as optional additional events such as:

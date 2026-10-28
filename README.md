@@ -24,4 +24,12 @@ The site will combine:
 
 ## Planned Technology
 
-The final technology stack will be documented before implementation begins.
+The site uses Next.js, React, TypeScript, Tailwind CSS, Vercel hosting, and Neon PostgreSQL.
+
+## Local RSVP testing
+
+Run `npm run dev` and open `/#rsvp`. The default is a browser-only sample flow. To test persisted sample invitations, run `npm run rsvp:setup-preview` after saving the local Neon credential in the ignored `.env.database.local` file, then restart the dev server. Private sample codes are saved in ignored `.env.rsvp-demo-codes.json`.
+
+See [database setup and deployment modes](db/README.md) for migrations, secure access, testing, and the requirements before real guest RSVPs open. The real guest list and credentials must never be committed.
+
+Run `npm test` for unit tests, `npm run test:rsvp-db` for database integration tests, and `npm run build` to verify the production build. Use Node.js 24.

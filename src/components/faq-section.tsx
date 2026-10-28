@@ -1,4 +1,5 @@
 import { wedding } from "@/config/wedding";
+import { getRsvpMode } from "@/server/rsvp";
 
 const questions = [
   {
@@ -24,7 +25,7 @@ const questions = [
   {
     question: "How do I RSVP?",
     answer:
-      `Please RSVP here on our website by ${wedding.rsvpDeadlineLabel}, using the unique code included with your invitation. The form is currently a preview with sample invitations; real RSVPs will open once it’s ready.`,
+      `Please RSVP here on our website by ${wedding.rsvpDeadlineLabel}, using the unique code included with your invitation.${getRsvpMode() === "live" ? " You can return with your code to update your response before the deadline." : " The form is currently a preview with sample invitations; real RSVPs will open once it’s ready."}`,
   },
   {
     question: "How can I share dietary restrictions?",
